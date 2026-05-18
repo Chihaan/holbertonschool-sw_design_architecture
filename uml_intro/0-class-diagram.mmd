@@ -1,0 +1,30 @@
+```mermaid
+classDiagram
+    Library "1" o-- "1..*" Book
+    Library "1" *-- "1..*" User
+    Library "1" *-- "0..*" Loan
+    User "1" -- "1" Loan
+    Book "1" -- "1" Loan
+
+    class Library{
+        +create_loan()
+        +register_user()
+        +add_book()
+    }
+    class Book{
+        -title: str
+        -author: str
+        -state: bool
+        +mark_as_unavailable()
+        +mark_as_available()
+    }
+    class User{
+        -name: str
+        -email: str
+    }
+    class Loan{
+        -start_date: str
+        -end_date: str
+        +close_loan()
+    }
+```
